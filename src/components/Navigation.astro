@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets'
+import tedxLogo from '../assets/logo-black.png'
+
 const navItems = [
   { label: 'Inicio', id: 'hero' },
   { label: 'Evento', id: 'evento' },
@@ -14,11 +17,7 @@ const navItems = [
 
 <nav class="nav-container">
   <div class="nav-content">
-    <div class="nav-logo">
-      <span class="ted">TED</span>
-      <span class="x">x</span>
-      <span class="uv">UV</span>
-    </div>
+    <Image src={tedxLogo} alt="TEDx Logo" width={200} />
 
     <!-- Desktop Menu -->
     <ul class="nav-menu">

@@ -42,27 +42,6 @@ body {
   align-items: center;
 }
 
-.nav-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-
-.nav-logo .ted {
-  color: var(--tedx-black);
-}
-
-.nav-logo .x {
-  color: var(--tedx-red);
-}
-
-.nav-logo .uv {
-  color: var(--tedx-black);
-  font-size: 1.2rem;
-  margin-left: 0.3rem;
-  font-weight: 400;
-}
-
 .nav-menu {
   display: flex;
   list-style: none;
