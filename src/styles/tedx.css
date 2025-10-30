@@ -6,6 +6,32 @@
   --tedx-white: #FFFFFF;
   --tedx-gray: #F5F5F5;
   --tedx-text-gray: #666666;
+  
+  /* Light mode (default) */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F5;
+  --bg-nav: #FFFFFF;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --tedx-red: #FF1744;
+  --tedx-black: #FFFFFF;
+  --tedx-white: #121212;
+  --tedx-gray: #1E1E1E;
+  --tedx-text-gray: #B0B0B0;
+  
+  /* Dark mode */
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-nav: #1E1E1E;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0B0B0;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -16,10 +42,12 @@
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: var(--tedx-black);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   line-height: 1.6;
   overflow-x: hidden;
   padding-top: 70px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Section Styles */
@@ -29,7 +57,7 @@ body {
 }
 
 .section-alternate {
-  background-color: var(--tedx-gray);
+  background-color: var(--bg-secondary);
 }
 
 .section-title {
@@ -53,10 +81,11 @@ body {
 
 /* Footer */
 .footer {
-  background-color: var(--tedx-black);
-  color: var(--tedx-white);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   text-align: center;
   padding: 2rem;
+  border-top: 1px solid var(--border-color);
 }
 
 /* Responsive Design */
@@ -83,8 +112,8 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--tedx-white);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-nav);
+    box-shadow: 0 5px 15px var(--shadow-color);
     animation: slideDown 0.3s ease;
   }
 
@@ -112,7 +141,7 @@ body {
     background: none;
     border: none;
     text-align: left;
-    color: var(--tedx-black);
+    color: var(--text-primary);
     font-size: 1.1rem;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     cursor: pointer;
@@ -120,7 +149,7 @@ body {
   }
 
   .nav-mobile-link:hover {
-    background-color: var(--tedx-gray);
+    background-color: var(--bg-secondary);
     color: var(--tedx-red);
     padding-left: 2.5rem;
   }

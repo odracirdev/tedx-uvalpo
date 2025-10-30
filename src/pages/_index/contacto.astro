@@ -22,9 +22,7 @@ import tedxLogo from '../../assets/logo-black.png'
       </svg>
       <a href="mailto:tedxuvalpochile@uv.cl">tedxuvalpochile@uv.cl</a>
     </div>
-    <p style="color: var(--tedx-text-gray); margin-bottom: 2rem;">
-      Síguenos en nuestras redes sociales para estar al tanto de las últimas novedades
-    </p>
+    <p class="contact-description">Síguenos en nuestras redes sociales para estar al tanto de las últimas novedades</p>
     <div class="social-links">
       <a
         href="https://instagram.com"
@@ -54,6 +52,12 @@ import tedxLogo from '../../assets/logo-black.png'
     max-width: 100%;
     height: auto;
     margin-bottom: 2rem;
+    filter: brightness(0) invert(var(--logo-invert, 0));
+    transition: filter 0.3s ease;
+  }
+
+  [data-theme='dark'] .contact-content img {
+    --logo-invert: 1;
   }
 
   .tedx-logo-large {
@@ -62,10 +66,19 @@ import tedxLogo from '../../assets/logo-black.png'
     letter-spacing: -2px;
   }
 
+  .contact-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  [data-theme='dark'] .contact-content img {
+    --logo-invert: 1;
+  }
+
   .contact-email {
     font-size: 1.3rem;
     margin-bottom: 2rem;
-    color: var(--tedx-text-gray);
+    color: var(--text-secondary);
   }
 
   .contact-email a {
@@ -85,7 +98,7 @@ import tedxLogo from '../../assets/logo-black.png'
   }
 
   .social-link {
-    color: var(--tedx-black);
+    color: var(--text-primary);
     font-size: 2rem;
     transition: all 0.3s ease;
   }

@@ -23,8 +23,8 @@ import tedxLogo from '../../assets/logo-black.png'
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--tedx-black) 0%, #1a1a1a 100%);
-    color: var(--tedx-white);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    color: var(--text-primary);
     text-align: center;
     padding: 2rem;
     position: relative;
@@ -38,9 +38,9 @@ import tedxLogo from '../../assets/logo-black.png'
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: radial-gradient(circle, rgba(235, 0, 40, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(circle, var(--tedx-red) 1px, transparent 1px);
     background-size: 30px 30px;
-    opacity: 0.5;
+    opacity: 0.05;
   }
 
   .hero img {
@@ -49,6 +49,12 @@ import tedxLogo from '../../assets/logo-black.png'
     margin-bottom: 2rem;
     position: relative;
     z-index: 1;
+    filter: brightness(0) invert(var(--logo-invert, 0));
+    transition: filter 0.3s ease;
+  }
+
+  [data-theme='dark'] .hero img {
+    --logo-invert: 1;
   }
 
   .hero-content {
@@ -60,20 +66,21 @@ import tedxLogo from '../../assets/logo-black.png'
   .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
+    opacity: 0.9;
   }
 
   .hero-info {
     font-size: 1.2rem;
     margin-bottom: 3rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
   }
 
   .cta-button {
     display: inline-block;
     padding: 1rem 3rem;
     background-color: var(--tedx-red);
-    color: var(--tedx-white);
+    color: #ffffff;
     text-decoration: none;
     border-radius: 50px;
     font-size: 1.1rem;

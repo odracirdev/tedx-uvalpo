@@ -38,11 +38,8 @@ const faqs = [
   <div class="faq-container">
     {
       faqs.map((faq, index) => (
-        <details
-          class="faq-item"
-          style="margin-bottom: 1rem; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);"
-        >
-          <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; padding: 0.5rem 0; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+        <details class="faq-item">
+          <summary class="faq-summary">
             {faq.question}
             <svg width="32" height="32" viewBox="0 0 24 24">
               <path
@@ -55,7 +52,7 @@ const faqs = [
               />
             </svg>
           </summary>
-          <p style="margin-top: 1rem; color: var(--tedx-text-gray); line-height: 1.8;">{faq.answer}</p>
+          <p class="faq-answer">{faq.answer}</p>
         </details>
       ))
     }
@@ -63,6 +60,34 @@ const faqs = [
 </section>
 
 <style>
+  .faq-item {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    background: var(--bg-nav);
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  .faq-summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+  }
+
+  .faq-answer {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
   details[open] .faq-icon {
     transform: rotate(180deg);
   }
