@@ -23,6 +23,13 @@ import '../styles/tedx.css'
         Las charlas TED y TEDx están diseñadas para inspirar, entretener e informar. Las opiniones expresadas por los
         speakers son propias.
       </p>
+      <p class="created-by">
+        Created by <a href="https://odracir.dev" target="_blank" rel="noopener noreferrer">odraciRdev</a> | Powered by <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener noreferrer">Astro</a
+        >
+      </p>
     </footer>
   </body>
 </html>
@@ -231,5 +238,17 @@ import '../styles/tedx.css'
     color: var(--tedx-white);
     text-align: center;
     padding: 2rem;
+  }
+
+  .created-by {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+
+    & a {
+      color: var(--tedx-white);
+      text-decoration: none;
+      font-weight: 600;
+    }
   }
 </style>
