@@ -14,6 +14,23 @@ import '../styles/tedx.css'
       content="TEDx Universidad de Valparaíso - 3 de Diciembre, 2025. Sala Oscura, Facultad de Arquitectura UV, Playa Ancha."
     />
     <title>TEDx Universidad de Valparaíso - En cada rincón, una idea</title>
+    <script is:inline>
+      // Ejecutar inmediatamente para evitar flash
+      ;(function () {
+        function getSystemTheme() {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+          }
+          return 'light'
+        }
+
+        // Check for saved theme preference, fallback to system preference
+        const savedTheme = localStorage.getItem('theme')
+        const theme = savedTheme || getSystemTheme()
+
+        document.documentElement.setAttribute('data-theme', theme)
+      })()
+    </script>
   </head>
   <body>
     <slot />

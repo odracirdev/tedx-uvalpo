@@ -111,6 +111,14 @@ const navItems = [
   const navLogoDark = document.getElementById('nav-logo-dark')
   const html = document.documentElement
 
+  // Function to get system theme preference
+  function getSystemTheme(): string {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  }
+
   // Function to update theme UI
   function updateThemeUI(theme: string) {
     // Update icons
@@ -162,10 +170,23 @@ const navItems = [
     }
   }
 
-  // Check for saved theme preference or default to 'light'
-  const currentTheme = localStorage.getItem('theme') || 'light'
-  html.setAttribute('data-theme', currentTheme)
+  // Get current theme (already set by inline script in Layout)
+  const currentTheme = html.getAttribute('data-theme') || getSystemTheme()
+
+  // Update UI to match current theme
   updateThemeUI(currentTheme)
+
+  // Listen for system theme changes (when user changes OS theme)
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      // Only update if user hasn't manually set a preference
+      if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light'
+        html.setAttribute('data-theme', newTheme)
+        updateThemeUI(newTheme)
+      }
+    })
+  }
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
