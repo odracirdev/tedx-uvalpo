@@ -1,0 +1,47 @@
+---
+const sponsors = [
+  { name: 'Universidad de Valparaíso', logo: 'https://via.placeholder.com/200x100/000000/FFFFFF?text=UV' },
+  { name: 'Empresa Sponsor 1', logo: 'https://via.placeholder.com/200x100/000000/FFFFFF?text=Sponsor+1' },
+  { name: 'Empresa Sponsor 2', logo: 'https://via.placeholder.com/200x100/000000/FFFFFF?text=Sponsor+2' },
+  { name: 'Empresa Sponsor 3', logo: 'https://via.placeholder.com/200x100/000000/FFFFFF?text=Sponsor+3' },
+  { name: 'Empresa Sponsor 4', logo: 'https://via.placeholder.com/200x100/000000/FFFFFF?text=Sponsor+4' },
+  { name: 'Empresa Sponsor 5', logo: 'https://via.placeholder.com/200x100/000000/FFFFFF?text=Sponsor+5' },
+]
+---
+
+<section class="section section-alternate">
+  <h2 class="section-title">Patrocinadores</h2>
+  <div class="sponsors-grid">
+    {
+      sponsors.map((sponsor) => (
+        <div>
+          <img src={sponsor.logo} alt={sponsor.name} class="sponsor-logo" />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .sponsor-logo {
+    width: 180px;
+    height: 100px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .sponsor-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+</style>

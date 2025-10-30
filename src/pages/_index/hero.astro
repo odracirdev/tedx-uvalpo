@@ -1,0 +1,93 @@
+---
+import { Image } from 'astro:assets'
+import tedxLogo from '../../assets/logo-black.png'
+---
+
+<section class="hero">
+  <Image src={tedxLogo} alt="TEDx Logo" width={600} />
+  <div class="hero-content">
+    <p class="hero-subtitle">En cada rincón, una idea</p>
+    <div class="hero-info">
+      <p>📅 3 de Diciembre, 2025</p>
+      <p>📍 Sala Oscura, Facultad de Arquitectura UV, Playa Ancha</p>
+      <p>🕐 10:00h - 16:00h</p>
+    </div>
+    <button id="scroll-to-tickets" class="cta-button"> Obtener Entradas </button>
+  </div>
+</section>
+
+<script>
+  const scrollButton = document.getElementById('scroll-to-tickets')
+  if (scrollButton) {
+    scrollButton.addEventListener('click', () => {
+      const ticketsSection = document.getElementById('tickets')
+      ticketsSection?.scrollIntoView({ behavior: 'smooth' })
+    })
+  }
+</script>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--tedx-black) 0%, #1a1a1a 100%);
+    color: var(--tedx-white);
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(235, 0, 40, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.5;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-info {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--tedx-red);
+    color: var(--tedx-white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .cta-button:hover {
+    background-color: #c50020;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(235, 0, 40, 0.3);
+  }
+</style>

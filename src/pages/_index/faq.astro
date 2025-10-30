@@ -1,0 +1,81 @@
+---
+const faqs = [
+  {
+    question: '¿Qué es TEDx?',
+    answer:
+      'TEDx es un programa de eventos locales organizados de forma independiente que reúnen a personas para compartir una experiencia similar a TED. En un evento TEDx, videos de charlas TED y oradores en vivo se combinan para despertar una discusión profunda y conexión.',
+  },
+  {
+    question: '¿Cuál es la duración del evento?',
+    answer:
+      'El evento tiene una duración de 9 horas, comenzando a las 9:00 AM con el registro y finalizando aproximadamente a las 6:00 PM. Incluye charlas, coffee breaks, almuerzo y sesiones de networking.',
+  },
+  {
+    question: '¿Qué incluye la entrada?',
+    answer:
+      'La entrada incluye acceso a todas las charlas del evento, material del evento, coffee breaks durante la mañana y tarde, almuerzo, y acceso a las áreas de networking.',
+  },
+  {
+    question: '¿Hay descuentos disponibles?',
+    answer:
+      'Sí, ofrecemos descuentos especiales para estudiantes de la Universidad de Valparaíso y grupos. Contacta con nosotros para más información sobre descuentos disponibles.',
+  },
+  {
+    question: '¿Puedo tomar fotos o grabar durante el evento?',
+    answer:
+      'Las grabaciones oficiales estarán a cargo del equipo de producción. Los asistentes pueden tomar fotos, pero pedimos que se abstengan de grabar videos durante las charlas para respetar a los speakers y la experiencia del evento.',
+  },
+  {
+    question: '¿Qué pasa si no puedo asistir?',
+    answer:
+      'Las entradas son reembolsables hasta 7 días antes del evento. Después de esa fecha, puedes transferir tu entrada a otra persona contactándonos con anticipación.',
+  },
+  {
+    question: '¿Hay estacionamiento disponible?',
+    answer:
+      'Sí, la Universidad de Valparaíso cuenta con estacionamiento disponible para los asistentes. Te recomendamos llegar con anticipación ya que los espacios son limitados. También hay transporte público cercano.',
+  },
+  {
+    question: '¿El evento es en español?',
+    answer:
+      'Sí, todas las charlas serán presentadas en español. Si hubiera alguna charla en otro idioma, se proporcionará traducción simultánea.',
+  },
+]
+---
+
+<section class="section">
+  <h2 class="section-title">Preguntas Frecuentes</h2>
+  <div class="faq-container">
+    {
+      faqs.map((faq, index) => (
+        <details
+          class="faq-item"
+          style="margin-bottom: 1rem; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);"
+        >
+          <summary style="font-size: 1.1rem; font-weight: 600; cursor: pointer; padding: 0.5rem 0; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            {faq.question}
+            <span class="faq-icon" style="transition: transform 0.3s;">
+              ▼
+            </span>
+          </summary>
+          <p style="margin-top: 1rem; color: var(--tedx-text-gray); line-height: 1.8;">{faq.answer}</p>
+        </details>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+</style>

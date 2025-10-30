@@ -1,0 +1,55 @@
+---
+// Event component
+---
+
+<section class="section">
+  <h2 class="section-title">El Evento</h2>
+  <div class="event-content">
+    <img
+      src="https://images.unsplash.com/photo-1563807893646-b6598a2b6fdc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25mZXJlbmNlJTIwc3BlYWtlciUyMHN0YWdlfGVufDF8fHx8MTc2MTcxODY0N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      alt="TEDx Universidad de Valparaíso"
+      class="event-image"
+    />
+    <div class="event-text">
+      <p>
+        TEDxUValpoChile es el único evento con licencia oficial TEDx en la Región de Valparaíso y el único TEDx
+        universitario regional en 2025.
+      </p>
+      <p style="margin-top: 1.5rem;">
+        Bajo el lema “En cada rincón, una idea”, invita a descubrir cómo la inspiración puede surgir en los lugares más
+        diversos: un laboratorio, una sala de clases, una red social o una conversación cotidiana.
+      </p>
+      <p style="margin-top: 1.5rem;">
+        Busca conectar academia, industria y sociedad, impulsando el pensamiento crítico, la colaboración
+        interdisciplinaria y la ciencia abierta como motores del cambio.
+      </p>
+      <p style="margin-top: 1.5rem;">
+        Reunirá a ocho speakers en una jornada de innovación, ciencia y creatividad, con charlas inspiradoras,
+        experiencias tecnológicas y espacios de vinculación.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .event-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .event-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .event-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--tedx-text-gray);
+  }
+</style>

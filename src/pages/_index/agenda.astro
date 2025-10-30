@@ -1,0 +1,119 @@
+---
+const agendaItems = [
+  {
+    time: '9:00 AM',
+    title: 'Registro y Bienvenida',
+    description: 'Acreditación de asistentes y entrega de material',
+  },
+  {
+    time: '9:30 AM',
+    title: 'Apertura del Evento',
+    description: 'Palabras de bienvenida y presentación del evento',
+  },
+  {
+    time: '10:00 AM',
+    title: 'María González',
+    description: 'Innovación Tecnológica: El Futuro es Ahora',
+  },
+  {
+    time: '10:30 AM',
+    title: 'Carlos Rodríguez',
+    description: 'Educación Transformadora en la Era Digital',
+  },
+  {
+    time: '11:00 AM',
+    title: 'Coffee Break',
+    description: 'Networking y refrigerio',
+  },
+  {
+    time: '11:30 AM',
+    title: 'Ana Martínez',
+    description: 'Sostenibilidad: Diseñando un Planeta Mejor',
+  },
+  {
+    time: '12:00 PM',
+    title: 'Diego Silva',
+    description: 'Creatividad Urbana: Repensando Nuestras Ciudades',
+  },
+  {
+    time: '12:30 PM',
+    title: 'Almuerzo',
+    description: 'Receso para almuerzo',
+  },
+  {
+    time: '2:00 PM',
+    title: 'Sesión de Tarde',
+    description: 'Charlas adicionales y presentaciones especiales',
+  },
+  {
+    time: '5:30 PM',
+    title: 'Clausura',
+    description: 'Palabras de cierre y agradecimientos',
+  },
+  {
+    time: '6:00 PM',
+    title: 'Fin del Evento',
+    description: 'Networking y despedida',
+  },
+]
+---
+
+<section class="section">
+  <h2 class="section-title">Agenda</h2>
+  <div class="agenda-timeline">
+    {
+      agendaItems.map((item) => (
+        <div class="agenda-item">
+          <div class="agenda-time">{item.time}</div>
+          <div class="agenda-details">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .agenda-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .agenda-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--tedx-white);
+    border-left: 4px solid var(--tedx-red);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .section-alternate .agenda-item {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .agenda-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .agenda-time {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--tedx-red);
+    min-width: 120px;
+  }
+
+  .agenda-details h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .agenda-details p {
+    color: var(--tedx-text-gray);
+  }
+</style>

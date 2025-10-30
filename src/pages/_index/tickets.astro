@@ -1,0 +1,58 @@
+---
+// Tickets component
+---
+
+<section class="section section-alternate">
+  <h2 class="section-title">Entradas</h2>
+  <div class="tickets-content">
+    <div class="ticket-price">$25.000 CLP</div>
+    <p class="ticket-info">
+      Entrada general que incluye acceso a todas las charlas, coffee breaks, almuerzo y material del evento.
+    </p>
+    <p class="ticket-info">¡Cupos limitados! Asegura tu lugar en este evento único.</p>
+    <a href="https://www.eventbrite.cl" target="_blank" rel="noopener noreferrer" class="cta-button">
+      Comprar Entradas
+    </a>
+  </div>
+</section>
+
+<style>
+  .tickets-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .ticket-price {
+    font-size: 4rem;
+    color: var(--tedx-red);
+    margin: 2rem 0;
+    font-weight: 700;
+  }
+
+  .ticket-info {
+    font-size: 1.2rem;
+    color: var(--tedx-text-gray);
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--tedx-red);
+    color: var(--tedx-white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .cta-button:hover {
+    background-color: #c50020;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(235, 0, 40, 0.3);
+  }
+</style>

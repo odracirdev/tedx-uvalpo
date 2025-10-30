@@ -1,0 +1,86 @@
+---
+const speakers = [
+  {
+    name: 'María',
+    lastName: 'González',
+    company: 'Instituto de Innovación Tecnológica',
+    image:
+      'https://images.unsplash.com/photo-1563132337-f159f484226c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2MTY5MTExMXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+  },
+  {
+    name: 'Carlos',
+    lastName: 'Rodríguez',
+    company: 'Fundación Educación del Futuro',
+    image:
+      'https://images.unsplash.com/photo-1672685667592-0392f458f46f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjE3NDYxMzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+  },
+  {
+    name: 'Ana',
+    lastName: 'Martínez',
+    company: 'Centro de Investigación Sostenible',
+    image:
+      'https://images.unsplash.com/flagged/photo-1564401398070-9a0ec00bd38a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBzcGVha2VyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYxNzY4NjgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+  },
+  {
+    name: 'Diego',
+    lastName: 'Silva',
+    company: 'Laboratorio de Creatividad Urbana',
+    image:
+      'https://images.unsplash.com/photo-1672685667592-0392f458f46f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjE3NDYxMzV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+  },
+]
+---
+
+<section class="section section-alternate">
+  <h2 class="section-title">Speakers</h2>
+  <div class="speakers-grid">
+    {
+      speakers.map((speaker) => (
+        <div class="speaker-card">
+          <img src={speaker.image} alt={`${speaker.name} ${speaker.lastName}`} class="speaker-image" />
+          <h3 class="speaker-name">
+            {speaker.name} {speaker.lastName}
+          </h3>
+          <p class="speaker-company">{speaker.company}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  /* Speakers Section */
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+  }
+
+  .speaker-card {
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .speaker-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .speaker-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--tedx-red);
+  }
+
+  .speaker-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .speaker-company {
+    color: var(--tedx-text-gray);
+    font-size: 1rem;
+  }
+</style>

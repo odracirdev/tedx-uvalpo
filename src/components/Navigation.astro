@@ -1,0 +1,110 @@
+---
+const navItems = [
+  { label: 'Inicio', id: 'hero' },
+  { label: 'Evento', id: 'evento' },
+  { label: 'Speakers', id: 'speakers' },
+  { label: 'Agenda', id: 'agenda' },
+  { label: 'Entradas', id: 'tickets' },
+  { label: 'FAQ', id: 'faq' },
+  { label: 'Equipo', id: 'equipo' },
+  { label: 'Sponsors', id: 'sponsors' },
+  { label: 'Contacto', id: 'contacto' },
+]
+---
+
+<nav class="nav-container">
+  <div class="nav-content">
+    <div class="nav-logo">
+      <span class="ted">TED</span>
+      <span class="x">x</span>
+      <span class="uv">UV</span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-menu">
+      {
+        navItems.map((item) => (
+          <li>
+            <button data-scroll-to={item.id} class="nav-link">
+              {item.label}
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <svg id="menu-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg
+        id="close-icon"
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        style="display: none;"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="nav-mobile-menu" id="mobile-menu" style="display: none;">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <button data-scroll-to={item.id} class="nav-mobile-link">
+                {item.label}
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const navToggle = document.getElementById('nav-toggle')
+  const mobileMenu = document.getElementById('mobile-menu')
+  const menuIcon = document.getElementById('menu-icon')
+  const closeIcon = document.getElementById('close-icon')
+
+  if (navToggle && mobileMenu && menuIcon && closeIcon) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.style.display !== 'none'
+      mobileMenu.style.display = isOpen ? 'none' : 'block'
+      menuIcon.style.display = isOpen ? 'block' : 'none'
+      closeIcon.style.display = isOpen ? 'none' : 'block'
+    })
+  }
+
+  // Smooth scroll for all nav links
+  const scrollButtons = document.querySelectorAll('[data-scroll-to]')
+  scrollButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const targetId = (e.currentTarget as HTMLElement).dataset.scrollTo
+      const element = document.getElementById(targetId || '')
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        // Close mobile menu if open
+        if (mobileMenu) {
+          mobileMenu.style.display = 'none'
+          if (menuIcon && closeIcon) {
+            menuIcon.style.display = 'block'
+            closeIcon.style.display = 'none'
+          }
+        }
+      }
+    })
+  })
+</script>
