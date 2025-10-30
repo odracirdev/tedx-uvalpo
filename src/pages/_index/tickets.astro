@@ -20,7 +20,7 @@
             Entrada general con descuento especial para estudiantes y personal de la Universidad de Valparaíso.
           </p>
         </div>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button--mobile"> Comprar Entradas </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button"> Comprar Entradas </a>
       </div>
       <div class="tickets-wrapper">
         <h3 class="ticket-type">Público General</h3>
@@ -36,10 +36,9 @@
             Entrada general que incluye acceso a todas las charlas, coffee breaks, almuerzo y material del evento.
           </p>
         </div>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button--mobile"> Comprar Entradas </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button"> Comprar Entradas </a>
       </div>
     </div>
-    <a href="#" target="_blank" rel="noopener noreferrer" class="cta-button"> Comprar Entradas </a>
   </div>
 </section>
 
@@ -53,7 +52,6 @@
   .tickets-price {
     display: flex;
     gap: 3rem;
-    margin-bottom: 3rem;
 
     @media (width <= 768px) {
       flex-direction: column;
@@ -101,33 +99,11 @@
     border: none;
     cursor: pointer;
     font-weight: 600;
-
-    @media (width <= 768px) {
-      display: none;
-    }
   }
 
   .cta-button:hover {
     background-color: #c50020;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(235, 0, 40, 0.3);
-  }
-
-  .cta-button--mobile {
-    display: none;
-
-    @media (width <= 768px) {
-      display: inline-block;
-      padding: 1rem 3rem;
-      background-color: var(--tedx-red);
-      color: var(--tedx-white);
-      text-decoration: none;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-    }
   }
 </style>
