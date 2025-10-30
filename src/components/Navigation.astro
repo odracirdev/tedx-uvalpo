@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
-import tedxLogo from '../assets/logo-black.png'
+import tedxLogoBlack from '../assets/logo-black.webp'
+import tedxLogoWhite from '../assets/logo-white.webp'
 
 const navItems = [
   { label: 'Inicio', id: 'hero' },
@@ -18,7 +19,8 @@ const navItems = [
 <nav class="nav-container">
   <div class="nav-content">
     <a href="#hero" class="logo">
-      <Image src={tedxLogo} alt="TEDx Logo" width={200} />
+      <Image src={tedxLogoBlack} alt="TEDx Logo" width={200} id="nav-logo-light" />
+      <Image src={tedxLogoWhite} alt="TEDx Logo" width={200} id="nav-logo-dark" style="display: none;" />
     </a>
 
     <!-- Desktop Menu -->
@@ -105,39 +107,74 @@ const navItems = [
   const themeToggle = document.getElementById('theme-toggle')
   const sunIcon = document.getElementById('sun-icon')
   const moonIcon = document.getElementById('moon-icon')
+  const navLogoLight = document.getElementById('nav-logo-light')
+  const navLogoDark = document.getElementById('nav-logo-dark')
   const html = document.documentElement
 
-  // Check for saved theme preference or default to 'light'
-  const currentTheme = localStorage.getItem('theme') || 'light'
-  html.setAttribute('data-theme', currentTheme)
-
-  // Update icon visibility based on current theme
-  if (sunIcon && moonIcon) {
-    if (currentTheme === 'dark') {
-      sunIcon.style.display = 'none'
-      moonIcon.style.display = 'block'
-    } else {
-      sunIcon.style.display = 'block'
-      moonIcon.style.display = 'none'
-    }
-  }
-
-  if (themeToggle && sunIcon && moonIcon) {
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme')
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light'
-
-      html.setAttribute('data-theme', newTheme)
-      localStorage.setItem('theme', newTheme)
-
-      // Toggle icon visibility
-      if (newTheme === 'dark') {
+  // Function to update theme UI
+  function updateThemeUI(theme: string) {
+    // Update icons
+    if (sunIcon && moonIcon) {
+      if (theme === 'dark') {
         sunIcon.style.display = 'none'
         moonIcon.style.display = 'block'
       } else {
         sunIcon.style.display = 'block'
         moonIcon.style.display = 'none'
       }
+    }
+
+    // Update navigation logos
+    if (navLogoLight && navLogoDark) {
+      if (theme === 'dark') {
+        navLogoLight.style.display = 'none'
+        navLogoDark.style.display = 'block'
+      } else {
+        navLogoLight.style.display = 'block'
+        navLogoDark.style.display = 'none'
+      }
+    }
+
+    // Update hero logos
+    const heroLogoLight = document.querySelector('.hero .logo-light') as HTMLElement
+    const heroLogoDark = document.querySelector('.hero .logo-dark') as HTMLElement
+    if (heroLogoLight && heroLogoDark) {
+      if (theme === 'dark') {
+        heroLogoLight.style.display = 'none'
+        heroLogoDark.style.display = 'block'
+      } else {
+        heroLogoLight.style.display = 'block'
+        heroLogoDark.style.display = 'none'
+      }
+    }
+
+    // Update contact logos
+    const contactLogoLight = document.querySelector('.contact-content .logo-light') as HTMLElement
+    const contactLogoDark = document.querySelector('.contact-content .logo-dark') as HTMLElement
+    if (contactLogoLight && contactLogoDark) {
+      if (theme === 'dark') {
+        contactLogoLight.style.display = 'none'
+        contactLogoDark.style.display = 'block'
+      } else {
+        contactLogoLight.style.display = 'block'
+        contactLogoDark.style.display = 'none'
+      }
+    }
+  }
+
+  // Check for saved theme preference or default to 'light'
+  const currentTheme = localStorage.getItem('theme') || 'light'
+  html.setAttribute('data-theme', currentTheme)
+  updateThemeUI(currentTheme)
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme')
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light'
+
+      html.setAttribute('data-theme', newTheme)
+      localStorage.setItem('theme', newTheme)
+      updateThemeUI(newTheme)
     })
   }
 
@@ -272,6 +309,7 @@ const navItems = [
     text-decoration: none;
     line-height: 1;
     cursor: pointer;
+    position: relative;
   }
 
   /* Mobile Responsive Styles */

@@ -1,10 +1,16 @@
 ---
 import { Image } from 'astro:assets'
-import tedxLogo from '../../assets/logo-black.png'
+import tedxLogoBlack from '../../assets/logo-black.webp'
+import tedxLogoWhite from '../../assets/logo-white.webp'
 ---
 
 <section class="hero">
-  <Image src={tedxLogo} alt="TEDx Logo" width={600} />
+  <div class="logo-light" style="display: block;">
+    <Image src={tedxLogoBlack} alt="TEDx Logo" width={600} />
+  </div>
+  <div class="logo-dark" style="display: none;">
+    <Image src={tedxLogoWhite} alt="TEDx Logo" width={600} />
+  </div>
   <div class="hero-content">
     <p class="hero-subtitle">En cada rincón, una idea</p>
     <div class="hero-info">
@@ -43,18 +49,17 @@ import tedxLogo from '../../assets/logo-black.png'
     opacity: 0.05;
   }
 
-  .hero img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
+  .hero .logo-light,
+  .hero .logo-dark {
     position: relative;
     z-index: 1;
-    filter: brightness(0) invert(var(--logo-invert, 0));
-    transition: filter 0.3s ease;
+    margin-bottom: 2rem;
   }
 
-  [data-theme='dark'] .hero img {
-    --logo-invert: 1;
+  .hero .logo-light img,
+  .hero .logo-dark img {
+    max-width: 100%;
+    height: auto;
   }
 
   .hero-content {
@@ -98,7 +103,8 @@ import tedxLogo from '../../assets/logo-black.png'
 
   /* Responsive adjustments */
   @media (max-width: 968px) {
-    .hero img {
+    .hero .logo-light img,
+    .hero .logo-dark img {
       max-width: 90%;
     }
   }
@@ -108,7 +114,8 @@ import tedxLogo from '../../assets/logo-black.png'
       padding: 1rem;
     }
 
-    .hero img {
+    .hero .logo-light img,
+    .hero .logo-dark img {
       max-width: 85%;
     }
   }

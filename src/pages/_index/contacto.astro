@@ -1,12 +1,18 @@
 ---
 import { Image } from 'astro:assets'
-import tedxLogo from '../../assets/logo-black.png'
+import tedxLogoBlack from '../../assets/logo-black.webp'
+import tedxLogoWhite from '../../assets/logo-white.webp'
 ---
 
 <section class="section section-alternate">
   <h2 class="section-title">Contacto</h2>
   <div class="contact-content">
-    <Image src={tedxLogo} alt="TEDx Logo" width={500} />
+    <div class="logo-light" style="display: block;">
+      <Image src={tedxLogoBlack} alt="TEDx Logo" width={500} />
+    </div>
+    <div class="logo-dark" style="display: none;">
+      <Image src={tedxLogoWhite} alt="TEDx Logo" width={500} />
+    </div>
     <div class="contact-email">
       <svg
         style="display: inline-block; margin-right: 0.5rem; vertical-align: middle;"
@@ -48,16 +54,14 @@ import tedxLogo from '../../assets/logo-black.png'
     margin: 0 auto;
   }
 
+  .contact-content .logo-light,
+  .contact-content .logo-dark {
+    margin-bottom: 2rem;
+  }
+
   .contact-content img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 2rem;
-    filter: brightness(0) invert(var(--logo-invert, 0));
-    transition: filter 0.3s ease;
-  }
-
-  [data-theme='dark'] .contact-content img {
-    --logo-invert: 1;
   }
 
   .tedx-logo-large {
@@ -69,10 +73,6 @@ import tedxLogo from '../../assets/logo-black.png'
   .contact-description {
     color: var(--text-secondary);
     margin-bottom: 2rem;
-  }
-
-  [data-theme='dark'] .contact-content img {
-    --logo-invert: 1;
   }
 
   .contact-email {
@@ -110,7 +110,8 @@ import tedxLogo from '../../assets/logo-black.png'
 
   /* Responsive adjustments */
   @media (max-width: 640px) {
-    .contact-content img {
+    .contact-content .logo-light img,
+    .contact-content .logo-dark img {
       max-width: 80%;
     }
 
