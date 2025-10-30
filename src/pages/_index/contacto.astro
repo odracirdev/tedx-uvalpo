@@ -50,6 +50,12 @@ import tedxLogo from '../../assets/logo-black.png'
     margin: 0 auto;
   }
 
+  .contact-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
   .tedx-logo-large {
     font-size: 5rem;
     margin-bottom: 2rem;
@@ -87,5 +93,20 @@ import tedxLogo from '../../assets/logo-black.png'
   .social-link:hover {
     color: var(--tedx-red);
     transform: scale(1.2);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .contact-content img {
+      max-width: 80%;
+    }
+
+    .contact-email {
+      font-size: 1.1rem;
+    }
+
+    .social-links {
+      gap: 1.5rem;
+    }
   }
 </style>
