@@ -2,7 +2,7 @@
 // Event component
 ---
 
-<section class="section">
+<section class="event section">
   <h2 class="section-title">El Evento</h2>
   <div class="event-content">
     <img
@@ -32,11 +32,19 @@
 </section>
 
 <style>
+  .event-section {
+    padding: 6rem 2rem;
+    margin: 0 auto;
+  }
   .event-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+
+    @media (width <= 960px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .event-image {
