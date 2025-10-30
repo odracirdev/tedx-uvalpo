@@ -12,19 +12,9 @@ import tedxLogo from '../../assets/logo-black.png'
       <p>📍 Sala Oscura, Facultad de Arquitectura UV, Playa Ancha</p>
       <p>🕐 10:00h - 16:00h</p>
     </div>
-    <button id="scroll-to-tickets" class="cta-button"> Obtener Entradas </button>
+    <a href="#tickets" class="cta-button"> Obtener Entradas </a>
   </div>
 </section>
-
-<script>
-  const scrollButton = document.getElementById('scroll-to-tickets')
-  if (scrollButton) {
-    scrollButton.addEventListener('click', () => {
-      const ticketsSection = document.getElementById('tickets')
-      ticketsSection?.scrollIntoView({ behavior: 'smooth' })
-    })
-  }
-</script>
 
 <style>
   .hero {

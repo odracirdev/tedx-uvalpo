@@ -51,8 +51,6 @@ body {
 }
 
 .nav-link {
-  background: none;
-  border: none;
   color: var(--tedx-black);
   cursor: pointer;
   font-size: 1rem;
@@ -60,6 +58,7 @@ body {
   transition: color 0.3s ease;
   padding: 0.5rem 0;
   position: relative;
+  text-decoration: none;
 }
 
 .nav-link::after {

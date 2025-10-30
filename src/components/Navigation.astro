@@ -17,16 +17,18 @@ const navItems = [
 
 <nav class="nav-container">
   <div class="nav-content">
-    <Image src={tedxLogo} alt="TEDx Logo" width={200} />
+    <a href="#hero">
+      <Image src={tedxLogo} alt="TEDx Logo" width={200} />
+    </a>
 
     <!-- Desktop Menu -->
     <ul class="nav-menu">
       {
         navItems.map((item) => (
           <li>
-            <button data-scroll-to={item.id} class="nav-link">
+            <a href={`#${item.id}`} class="nav-link">
               {item.label}
-            </button>
+            </a>
           </li>
         ))
       }
@@ -86,24 +88,4 @@ const navItems = [
       closeIcon.style.display = isOpen ? 'none' : 'block'
     })
   }
-
-  // Smooth scroll for all nav links
-  const scrollButtons = document.querySelectorAll('[data-scroll-to]')
-  scrollButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      const targetId = (e.currentTarget as HTMLElement).dataset.scrollTo
-      const element = document.getElementById(targetId || '')
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-        // Close mobile menu if open
-        if (mobileMenu) {
-          mobileMenu.style.display = 'none'
-          if (menuIcon && closeIcon) {
-            menuIcon.style.display = 'block'
-            closeIcon.style.display = 'none'
-          }
-        }
-      }
-    })
-  })
 </script>
