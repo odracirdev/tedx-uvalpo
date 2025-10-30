@@ -88,6 +88,24 @@ const navItems = [
       closeIcon.style.display = isOpen ? 'none' : 'block'
     })
   }
+
+  // Mobile menu links - close menu on click and scroll
+  const mobileLinks = document.querySelectorAll('.nav-mobile-link')
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetId = (e.currentTarget as HTMLElement).dataset.scrollTo
+      const element = document.getElementById(targetId || '')
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        // Close mobile menu
+        if (mobileMenu && menuIcon && closeIcon) {
+          mobileMenu.style.display = 'none'
+          menuIcon.style.display = 'block'
+          closeIcon.style.display = 'none'
+        }
+      }
+    })
+  })
 </script>
 
 <style>
@@ -165,5 +183,79 @@ const navItems = [
     text-decoration: none;
     line-height: 1;
     cursor: pointer;
+  }
+
+  /* Mobile Responsive Styles */
+  @media (max-width: 968px) {
+    .nav-content {
+      padding: 1rem 1.5rem;
+    }
+
+    .nav-menu {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: block;
+    }
+
+    .nav-mobile-menu {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--tedx-white);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-mobile-menu ul {
+      list-style: none;
+      padding: 1rem 0;
+      margin: 0;
+    }
+
+    .nav-mobile-link {
+      display: block;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: none;
+      border: none;
+      text-align: left;
+      color: var(--tedx-black);
+      font-size: 1.1rem;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .nav-mobile-link:hover {
+      background-color: var(--tedx-gray);
+      color: var(--tedx-red);
+      padding-left: 2.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav-content {
+      padding: 0.8rem 1rem;
+    }
+
+    .logo img {
+      max-width: 150px;
+      height: auto;
+    }
   }
 </style>
